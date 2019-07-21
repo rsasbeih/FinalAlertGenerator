@@ -1,21 +1,70 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div>
   <h1>
-    Welcome to {{ title }}!
+    Gradient Generator
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <div id="grad1"></div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="disp-flex">
+  <div class="flx-child">
+    <div class="menu">
+      <!--
+      <mat-tab-group>
+          <mat-tab label="First">
+          -->
+          <h2>Settings</h2>
 
+      <div class="grid-container">
+        <label>Color #1</label>
+        <input type="color" value="#ff0000" [(ngModel)]="color1">
+
+        <label>Color #2</label>
+        <input type="color" value="blue" [(ngModel)]="color2" value="#f6b73c">
+
+        <label>Title</label>
+        <input type="text" [(ngModel)]="title">
+
+        <label>Icon</label>
+        <!--
+          <input type="file" (change)="readUrl($event);sendUrl();" >
+      -->
+        <div style="margin-bottom: 20px;">
+          <img class="icon" [src]="icons[0]" (click)="setIcon(icons[0])" />
+          <img class="icon" [src]="icons[1]" (click)="setIcon(icons[1])" />
+          <img class="icon" [src]="icons[2]" (click)="setIcon(icons[2])" />
+          <img class="icon" [src]="icons[3]" (click)="setIcon(icons[3])" />
+        </div>
+        <label>Body</label>
+        <textarea [(ngModel)]="body" (input)="sendBody()"></textarea>
+        <br />
+
+      </div>
+      <!--
+          </mat-tab>
+          <mat-tab label="Second"> Content 2 </mat-tab>
+      </mat-tab-group>
+  -->
+    </div>
+  </div>
+
+  <div class="flx-child-3 disp-flex-center">
+    <div class="colored-div" [style.backgroundImage]="'linear-gradient(' + color1 + ', ' + color2 + ')'">
+      <div>
+        <p class="title disp-flex-center">
+          {{title}}
+        </p>
+
+        <div class="simple-disp-flex">
+          <div class="disp-flex-center">
+            <img [src]="iconSrc" />
+          </div>
+          <p class="body">
+            {{body}}
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>
