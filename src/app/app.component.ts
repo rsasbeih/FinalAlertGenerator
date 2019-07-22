@@ -6,12 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  icons=["../../assets/birthday-cake.svg",'../../assets/warning.svg','../../assets/pedestrian-walking.svg','../../assets/people.svg'];
-  title:string;
-  alertTitle:string;
+  icons=["../../assets/birthday-cake.svg",'../../assets/warning.svg','../../assets/pedestrian-walking.svg','../../assets/people.svg','../../assets/breakfast.svg'];
+  title:string="Title shows here";
+//  alertTitle:string="Title shows here";
   color1="red";
   color2="blue";
-  body:string;
+  body:string="Body shows here";
   iconSrc:string="../../assets/birthday-cake.svg";
   setIcon(icon:string){
     this.iconSrc=icon;
